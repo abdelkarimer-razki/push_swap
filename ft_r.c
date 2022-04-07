@@ -50,3 +50,16 @@ void	ft_rr(t_stacka *sa, t_stackb *sb)
 	ft_rb(sb);
 	write(1, "rr\n", 3);
 }
+
+void	*ft_preversea(t_stacka *sa)
+{
+	int	*a;
+
+	sa->ac--;
+	a = malloc(sa->ac * 4);
+	sa->a++;
+	memcpy(a, sa->a, sa->ac * 4);
+	sa->a--;
+	free(sa->a);
+	return (a);
+}

@@ -40,9 +40,16 @@ void	ft_rra(t_stacka *sa);
 void	ft_rrb(t_stackb *sb);
 void	ft_rrr(t_stacka *sa, t_stackb *sb);
 int		ft_atoi(const char *str);
-int		*orderedtable(t_stacka *sa);
+int		*orderedtable(int *a, int ac);
 void	swapem(int *i, int *j);
 void	threeless(t_stacka *sa);
 void	*ft_preverse(int *ptr);
+int		test_table(t_stacka *sa, int *t);
 void	fiveless(t_stacka *sa, t_stackb *sb);
+void	fivemore(t_stacka *sa, t_stackb *sb);
+void	send_half(t_stacka *sa, t_stackb *sb);
+void	send_max(t_stacka *sa, t_stackb *sb);
+void	*ft_preversea(t_stacka *sa);
+int		bige(int *a, int c, int k);
+int		bigs(int *a, int c, int k);
 #endif

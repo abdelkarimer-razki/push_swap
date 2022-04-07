@@ -28,7 +28,7 @@ void	threeless(t_stacka *sa)
 	int	i;
 	int	*t;
 
-	t = orderedtable(sa);
+	t = orderedtable(sa->a, sa->ac);
 	i = search_in_table(sa, t, sa->ac - 1);
 	if (i < sa->ac / 2)
 		ft_ra(sa);
@@ -64,7 +64,7 @@ void	fiveless(t_stacka *sa, t_stackb *sb)
 	int	i;
 	int	*t;
 
-	t = orderedtable(sa);
+	t = orderedtable(sa->a, sa->ac);
 	i = search_in_table(sa, t, 0);
 	send_small_to_b(sa, sb, i);
 	i = search_in_table(sa, t, 1);
@@ -76,9 +76,8 @@ void	fiveless(t_stacka *sa, t_stackb *sb)
 
 void	fivemore(t_stacka *sa, t_stackb *sb)
 {
-	int	i;
-	int	*t;
-
-	t = orderedtable(sa);
-	if (sa->ac)
+	while (sa->ac > 5)
+		send_half(sa, sb);
+	fiveless(sa, sb);
+	send_max(sa, sb);
 }

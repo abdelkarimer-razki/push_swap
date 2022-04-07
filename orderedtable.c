@@ -21,21 +21,21 @@ void	swapem(int *i, int *j)
 	*j = c;
 }
 
-int	*orderedtable(t_stacka *sa)
+int	*orderedtable(int *a, int ac)
 {
 	int	*t;
 	int	i;
 	int	j;
 
 	i = -1;
-	t = malloc(sa->ac * 4);
-	while (++i < sa->ac)
-		t[i] = sa->a[i];
+	t = malloc(ac * 4);
+	while (++i < ac)
+		t[i] = a[i];
 	i = -1;
-	while (++i < sa->ac - 1)
+	while (++i < ac - 1)
 	{
 		j = i;
-		while (++j < sa->ac)
+		while (++j < ac)
 		{
 			if (t[i] > t[j])
 				swapem(&t[i], &t[j]);

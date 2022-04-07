@@ -53,8 +53,7 @@ int	main(int arc, char **arv)
 	if (arc - 1 <= 3)
 		threeless(&sa);
 	else if (arc - 1 > 3 && arc - 1 <= 5)
-		fiveless(&sa, &sb);
+		fivemore(&sa, &sb);
 	else if (arc - 1 > 5)
-	{
-	}
+		fivemore(&sa, &sb);
 }

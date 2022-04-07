@@ -45,49 +45,42 @@ void	*ft_preverseb(t_stackb *sb)
 	return (a);
 }
 
-void	*ft_preversea(t_stacka *sa)
-{
-	int	*a;
-
-	sa->ac--;
-	a = malloc(sa->ac * 4);
-	sa->a++;
-	memcpy(a, sa->a, sa->ac * 4);
-	sa->a--;
-	free(sa->a);
-	return (a);
-}
-
 void	ft_pa(t_stacka *sa, t_stackb *sb)
 {
 	int	ac;
 
-	ac = sa->ac;
-	sa->a = ft_realloca(sa, (ac + 1) * 4);
-	while (ac - 1 >= 0)
+	if (sb->bc != 0)
 	{
-		sa->a[ac] = sa->a[ac - 1];
-		ac--;
+		ac = sa->ac;
+		sa->a = ft_realloca(sa, (ac + 1) * 4);
+		while (ac - 1 >= 0)
+		{
+			sa->a[ac] = sa->a[ac - 1];
+			ac--;
+		}
+		sa->a[0] = sb->b[0];
+		sa->ac++;
+		sb->b = ft_preverseb(sb);
+		write(1, "pa\n", 3);
 	}
-	sa->a[0] = sb->b[0];
-	sa->ac++;
-	sb->b = ft_preverseb(sb);
-	write(1, "pa\n", 3);
 }
 
 void	ft_pb(t_stacka *sa, t_stackb *sb)
 {
 	int	bc;
 
-	bc = sb->bc;
-	sb->b = ft_reallocb(sb, (bc + 1) * 4);
-	while (bc - 1 >= 0)
+	if (sa->ac != 0)
 	{
-		sb->b[bc] = sb->b[bc - 1];
-		bc--;
+		bc = sb->bc;
+		sb->b = ft_reallocb(sb, (bc + 1) * 4);
+		while (bc - 1 >= 0)
+		{
+			sb->b[bc] = sb->b[bc - 1];
+			bc--;
+		}
+		sb->b[0] = sa->a[0];
+		sb->bc++;
+		sa->a = ft_preversea(sa);
+		write(1, "pb\n", 3);
 	}
-	sb->b[0] = sa->a[0];
-	sb->bc++;
-	sa->a = ft_preversea(sa);
-	write(1, "pb\n", 3);
 }
