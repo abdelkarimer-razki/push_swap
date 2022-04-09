@@ -12,29 +12,38 @@
 
 #include "push_swap.h"
 
-void	ft_sa(t_stacka *sa)
+void	ft_sa(t_stacka *sa, int i)
 {
 	int	cmpt;
 
-	cmpt = sa->a[0];
-	sa->a[0] = sa->a[1];
-	sa->a[1] = cmpt;
-	write(1, "sa\n", 3);
+	if (sa->ac > 1)
+	{
+		cmpt = sa->a[0];
+		sa->a[0] = sa->a[1];
+		sa->a[1] = cmpt;
+		if (i == 0)
+			write(1, "sa\n", 3);
+	}
 }
 
-void	ft_sb(t_stackb *sb)
+void	ft_sb(t_stackb *sb, int i)
 {
 	int	cmpt;
 
-	cmpt = sb->b[0];
-	sb->b[0] = sb->b[1];
-	sb->b[1] = cmpt;
-	write(1, "sb\n", 3);
+	if (sb->bc > 1)
+	{
+		cmpt = sb->b[0];
+		sb->b[0] = sb->b[1];
+		sb->b[1] = cmpt;
+		if (i == 0)
+			write(1, "sb\n", 3);
+	}
 }
 
-void	ft_ss(t_stacka *sa, t_stackb *sb)
+void	ft_ss(t_stacka *sa, t_stackb *sb, int i)
 {
-	ft_sa(sa);
-	ft_sb(sb);
-	write(1, "ss\n", 3);
+	ft_sa(sa, i);
+	ft_sb(sb, i);
+	if (i == 0)
+		write(1, "ss\n", 3);
 }

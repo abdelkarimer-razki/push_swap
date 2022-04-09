@@ -1,47 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   orderedtable.c                                     :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aer-razk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/01 17:52:13 by aer-razk          #+#    #+#             */
-/*   Updated: 2022/04/01 17:52:14 by aer-razk         ###   ########.fr       */
+/*   Created: 2021/11/13 13:52:32 by aer-razk          #+#    #+#             */
+/*   Updated: 2021/11/14 14:18:04 by aer-razk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "push_swap.h"
 
-void	swapem(int *i, int *j)
+void	*ft_memcpy1(void *dest, const void *src, size_t n)
 {
-	int	c;
+	char	*s;
+	char	*d;
 
-	c = *i;
-	*i = *j;
-	*j = c;
-}
-
-int	*orderedtable(int *a, int ac)
-{
-	int	*t;
-	int	i;
-	int	j;
-
-	i = -1;
-	t = malloc(ac * 4);
-	if (!t)
-		return (NULL);
-	while (++i < ac)
-		t[i] = a[i];
-	i = -1;
-	while (++i < ac - 1)
+	s = (char *)dest;
+	d = (char *)src;
+	if (src != NULL || dest != NULL)
 	{
-		j = i;
-		while (++j < ac)
+		while (n--)
 		{
-			if (t[i] > t[j])
-				swapem(&t[i], &t[j]);
+			*s = *d;
+			s++;
+			d++;
 		}
 	}
-	return (t);
+	return (dest);
 }

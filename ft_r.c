@@ -12,43 +12,52 @@
 
 #include "push_swap.h"
 
-void	ft_ra(t_stacka *sa)
+void	ft_ra(t_stacka *sa, int c)
 {
 	int	cmpt;
 	int	i;
 
-	cmpt = sa->a[0];
-	i = 0;
-	while (i + 1 < sa->ac)
+	if (sa->ac != 0)
 	{
-		sa->a[i] = sa->a[i + 1];
-		i++;
+		cmpt = sa->a[0];
+		i = 0;
+		while (i + 1 < sa->ac)
+		{
+			sa->a[i] = sa->a[i + 1];
+			i++;
+		}
+		sa->a[sa->ac - 1] = cmpt;
+		if (c == 0)
+			write(1, "ra\n", 3);
 	}
-	sa->a[sa->ac - 1] = cmpt;
-	write(1, "ra\n", 3);
 }
 
-void	ft_rb(t_stackb *sb)
+void	ft_rb(t_stackb *sb, int c)
 {
 	int	cmpt;
 	int	i;
 
-	cmpt = sb->b[0];
-	i = 0;
-	while (i + 1 < sb->bc)
+	if (sb->bc != 0)
 	{
-		sb->b[i] = sb->b[i + 1];
-		i++;
+		cmpt = sb->b[0];
+		i = 0;
+		while (i + 1 < sb->bc)
+		{
+			sb->b[i] = sb->b[i + 1];
+			i++;
+		}
+		sb->b[sb->bc - 1] = cmpt;
+		if (c == 0)
+			write(1, "rb\n", 3);
 	}
-	sb->b[sb->bc - 1] = cmpt;
-	write(1, "rb\n", 3);
 }
 
-void	ft_rr(t_stacka *sa, t_stackb *sb)
+void	ft_rr(t_stacka *sa, t_stackb *sb, int i)
 {
-	ft_ra(sa);
-	ft_rb(sb);
-	write(1, "rr\n", 3);
+	ft_ra(sa, i);
+	ft_rb(sb, i);
+	if (i == 0)
+		write(1, "rr\n", 3);
 }
 
 void	*ft_preversea(t_stacka *sa)
@@ -57,8 +66,10 @@ void	*ft_preversea(t_stacka *sa)
 
 	sa->ac--;
 	a = malloc(sa->ac * 4);
+	if (!a)
+		return (NULL);
 	sa->a++;
-	memcpy(a, sa->a, sa->ac * 4);
+	ft_memcpy1(a, sa->a, sa->ac * 4);
 	sa->a--;
 	free(sa->a);
 	return (a);

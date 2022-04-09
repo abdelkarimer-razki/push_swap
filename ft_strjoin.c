@@ -1,47 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   orderedtable.c                                     :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aer-razk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/01 17:52:13 by aer-razk          #+#    #+#             */
-/*   Updated: 2022/04/01 17:52:14 by aer-razk         ###   ########.fr       */
+/*   Created: 2021/11/17 13:41:27 by aer-razk          #+#    #+#             */
+/*   Updated: 2021/11/22 23:12:38 by aer-razk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "push_swap.h"
 
-void	swapem(int *i, int *j)
+char	*ft_strjoin1(char *s1, char *s2)
 {
-	int	c;
+	int		i;
+	int		j;
+	char	*s;
 
-	c = *i;
-	*i = *j;
-	*j = c;
-}
-
-int	*orderedtable(int *a, int ac)
-{
-	int	*t;
-	int	i;
-	int	j;
-
-	i = -1;
-	t = malloc(ac * 4);
-	if (!t)
+	if (!s1 || !s2)
 		return (NULL);
-	while (++i < ac)
-		t[i] = a[i];
-	i = -1;
-	while (++i < ac - 1)
-	{
-		j = i;
-		while (++j < ac)
-		{
-			if (t[i] > t[j])
-				swapem(&t[i], &t[j]);
-		}
-	}
-	return (t);
+	j = 0;
+	i = ft_strlen1(s1) + ft_strlen1(s2);
+	s = malloc(i + 1);
+	if (!s)
+		return (NULL);
+	ft_memcpy1(s, s1, ft_strlen1(s1));
+	ft_memcpy1(s + ft_strlen1(s1), s2, ft_strlen1(s2));
+	s[i] = 0;
+	free(s1);
+	return (s);
 }

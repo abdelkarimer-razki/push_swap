@@ -23,9 +23,9 @@ void	send_half(t_stacka *sa, t_stackb *sb)
 		&& (j * 4 / 5 + 1 < sa->ac || j % 5 == 0))
 	{
 		if (sa->a[0] < t[j / 5])
-			ft_pb(sa, sb);
+			ft_pb(sa, sb, 0);
 		else
-			ft_ra(sa);
+			ft_ra(sa, 0);
 	}
 }
 
@@ -39,14 +39,14 @@ void	send_max(t_stacka *sa, t_stackb *sb)
 	while (sb->bc > 0)
 	{
 		if (sb->b[0] == t[sb->bc - 1])
-			ft_pa(sa, sb);
+			ft_pa(sa, sb, 0);
 		else
 		{
 			if (bigs(sb->b, sb->bc, t[sb->bc - 1])
 				> bige(sb->b, sb->bc, t[sb->bc - 1]))
-				ft_rrb(sb);
+				ft_rrb(sb, 0);
 			else
-				ft_rb(sb);
+				ft_rb(sb, 0);
 		}
 	}
 }

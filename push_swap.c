@@ -12,48 +12,19 @@
 
 #include "push_swap.h"
 
-void	paramtester(char *str)
-{
-	int	i;
-
-	i = -1;
-	while (str[++i])
-	{
-		if (str[i] == '-' || str[i] == '+')
-			i++;
-		if (str[i] > '9' || str[i] < '0')
-		{
-			write(1, "parameter error\n", 16);
-			exit(0);
-		}
-	}
-	if (i == 0)
-	{
-		write(1, "parameter error\n", 16);
-		exit(0);
-	}
-}
-
 int	main(int arc, char **arv)
 {
 	t_stacka	sa;
 	t_stackb	sb;
-	int			i;
 
-	sa.a = malloc((arc - 1) * 4);
-	sa.ac = arc - 1;
 	sb.bc = 0;
-	i = 0;
-	while (i < sa.ac)
-	{
-		paramtester(arv[i + 1]);
-		sa.a[i] = ft_atoi(arv[i + 1]);
-		i++;
-	}
-	if (arc - 1 <= 3)
+	sa.a = paramtester(arv, arc, &sa);
+	if (sa.ac == 0)
+		exit(0);
+	if (sa.ac <= 3)
 		threeless(&sa);
-	else if (arc - 1 > 3 && arc - 1 <= 5)
-		fivemore(&sa, &sb);
-	else if (arc - 1 > 5)
+	else if (sa.ac > 3 && sa.ac <= 5)
+		fiveless(&sa, &sb);
+	else if (sa.ac > 5)
 		fivemore(&sa, &sb);
 }

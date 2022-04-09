@@ -12,7 +12,13 @@
 
 NAME = push_swap
 
-FILES = push_swap.c ft_atoi.c threeless.c orderedtable.c ft_rr.c ft_r.c ft_s.c ft_p.c test_table.c send.c
+FILES = push_swap.c ft_atoi.c threeless.c orderedtable.c ft_rr.c ft_r.c ft_s.c\
+		ft_p.c test_table.c send.c ft_memcpy.c ft_split.c ft_strjoin.c ft_strlen.c\
+		parameter_tests.c
+
+BFILES = checker.c get_next_line/get_next_line.c get_next_line/get_next_line_utils.c\
+		ft_atoi.c threeless.c orderedtable.c ft_rr.c ft_r.c ft_s.c ft_p.c test_table.c\
+		send.c ft_memcpy.c ft_split.c ft_strjoin.c ft_strlen.c parameter_tests.c ft_strcmp.c
 
 INCLUDE = push_swap.h
 
@@ -22,6 +28,8 @@ CFLAGS = -Wall -Wextra -Werror
 
 OBJS = ${FILES:.c=.o}
 
+BOBJS = ${BFILES:.c=.o}
+
 
 all:$(NAME)
 
@@ -29,15 +37,21 @@ $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) -I $(INCLUDE) -o $(NAME)
 	@echo "SUUUUUUUUIIIIIII"
 
+bonus: $(BOBJS)
+	@$(CC) $(CFLAGS) $(BOBJS) -I $(INCLUDE) -o checker
+	@echo "SUUUUUUUUIIIIIII"
+
 %.o : %.c $(INCLUDE)
 	gcc  $(CFLAGS) -o $@ -c $<
 
 clean:
 	@rm -f ${OBJS}
+	@rm -f ${BOBJS}
 	@echo "SUUUUUUUUIIIIIII"
 
 fclean: clean
 	@rm -f ${NAME}
+	@rm -f checker
 	@echo "SUUUUUUUUIIIIIII"
 
 re: fclean all

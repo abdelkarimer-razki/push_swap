@@ -11,6 +11,15 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
+void	eror(int k)
+{
+	if (k > 2147483647 || k < -2147483648)
+	{
+		write(2, "error\n", 6);
+		exit(0);
+	}
+}
+
 int	ft_atoi(const char *str)
 {
 	char		*c;
@@ -23,9 +32,7 @@ int	ft_atoi(const char *str)
 	while (*c == ' ' || *c == '\n'
 		|| *c == '\t' || *c == '\r'
 		|| *c == '\f' || *c == '\v' )
-	{
 		c++;
-	}
 	if (*c == '-' || *c == '+')
 	{
 		if (*c == '-')
@@ -37,5 +44,6 @@ int	ft_atoi(const char *str)
 		k = (*c - 48) + k * 10;
 		c++;
 	}
+	eror((int)k * m);
 	return ((int)(k * m));
 }

@@ -1,47 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   orderedtable.c                                     :+:      :+:    :+:   */
+/*   strncmp.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aer-razk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/01 17:52:13 by aer-razk          #+#    #+#             */
-/*   Updated: 2022/04/01 17:52:14 by aer-razk         ###   ########.fr       */
+/*   Created: 2021/11/11 10:48:10 by aer-razk          #+#    #+#             */
+/*   Updated: 2021/11/22 23:24:32 by aer-razk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "push_swap.h"
 
-void	swapem(int *i, int *j)
+int	ft_strcmp(char *s1, char *s2)
 {
-	int	c;
+	size_t			i;
+	unsigned char	*s3;
+	unsigned char	*s4;
 
-	c = *i;
-	*i = *j;
-	*j = c;
-}
-
-int	*orderedtable(int *a, int ac)
-{
-	int	*t;
-	int	i;
-	int	j;
-
-	i = -1;
-	t = malloc(ac * 4);
-	if (!t)
-		return (NULL);
-	while (++i < ac)
-		t[i] = a[i];
-	i = -1;
-	while (++i < ac - 1)
+	i = 0;
+	s3 = (unsigned char *)s1;
+	s4 = (unsigned char *)s2;
+	if (s3 != NULL || s4 != NULL)
 	{
-		j = i;
-		while (++j < ac)
+		while (s3[i] != '\0' || s4[i] != '\0')
 		{
-			if (t[i] > t[j])
-				swapem(&t[i], &t[j]);
+			if (s3[i] != s4[i])
+				return (s3[i] - s4[i]);
+			i++;
 		}
 	}
-	return (t);
+	return (0);
 }
