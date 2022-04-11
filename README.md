@@ -9,19 +9,19 @@ and the numbers that we're gonna sort are passed as argument in the object file 
 
 
 in the case showed above i sorted a stack of 5 integers in 10 moves which is pretty good.
-but now i gotta go deep into explaining what are these moves "instructions" are doing.
+but now i gotta go deep into explaining what are these moves "instructions" are doing.<br />
 
-First of all we have
-sa : which is an instruction that let use swap the first and the second number on 'STACK A'.
-sb : same as 'sa' sb used to swap first to element but this time in 'STACK B'. 
-ss : do 'sa' and 'sb' at the same time and it consider as one move.
-pa : it takes the first ekement at 'STACK B' and push it ot the top of 'STACK A'.
-pb : same as 'pa' but this time we take the first element at 'STACK A' and we push it to the top of 'STAKC B'.
-ra : it shifts up all the element of 'STACK A' by 1 so we basiclly make the first element becomes the last.
-rb : same as 'ra' it shift upp all the element but this time at 'STACK B' by 1 "first element becomes the last".
-rr : do 'ra' and 'rb' at the same time but it counts as one move.
-rra : it shifts down all the element of 'STACK A' by 1 so we basiclly make the last element becomes the first.
-rrb : same as 'rra' it shift down all the element but this time at 'STACK B' by 1 "first element becomes the last".
+First of all we have<br />
+sa : which is an instruction that let use swap the first and the second number on 'STACK A'.<br />
+sb : same as 'sa' sb used to swap first to element but this time in 'STACK B'. <br />
+ss : do 'sa' and 'sb' at the same time and it consider as one move.<br />
+pa : it takes the first ekement at 'STACK B' and push it ot the top of 'STACK A'.<br />
+pb : same as 'pa' but this time we take the first element at 'STACK A' and we push it to the top of 'STAKC B'.<br />
+ra : it shifts up all the element of 'STACK A' by 1 so we basiclly make the first element becomes the last.<br />
+rb : same as 'ra' it shift upp all the element but this time at 'STACK B' by 1 "first element becomes the last".<br />
+rr : do 'ra' and 'rb' at the same time but it counts as one move.<br />
+rra : it shifts down all the element of 'STACK A' by 1 so we basiclly make the last element becomes the first.<br />
+rrb : same as 'rra' it shift down all the element but this time at 'STACK B' by 1 "first element becomes the last".<br />
 
 but i prefere not to get deep into the algorithm 
 
