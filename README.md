@@ -5,6 +5,7 @@ Well, we have basiclly two stacks, the first is named 'STACK A' and the second i
 and the numbers that we're gonna sort are passed as argument in the object file and our program should show use the instructions he used to sort these numbers.
 <img width="371" alt="Screen Shot 2022-04-11 at 2 22 19 AM" src="https://user-images.githubusercontent.com/65429355/162654432-f191b779-094c-4dc2-988a-135de67c3572.png">
 
+
 in the case showed above i sorted a stack of 5 integers in 10 moves which is pretty good.
 but now i gotta go deep into explaining what are these moves "instructions" are doing.
 
